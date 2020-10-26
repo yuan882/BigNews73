@@ -2,11 +2,61 @@
     margin: 0;
     padding: 0; 
 }
-html {
+html, body {
     height: 100%;
 }
 body {
-    /* height: 100%; */
     background: url('../images/login_bg.jpg') no-repeat;
     background-size: cover;
+    position: relative;
+}
+
+/* 登录注册页 ------------------------------------------ */
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+/* 注册和登录框 */
+.login,
+.register {
+    width: 400px;
+    height: 310px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* top: 100px; */
+    transform: translate(-50%, -50%);
+}
+.title {
+    text-align: center;
+    padding: 18px 0;
+}
+/* 表单内容的格式 */
+.myForm {
+    padding: 0 30px;
+}
+
+.myForm .layui-btn {
+    width: 100%;
+}
+
+.myForm a {
+    float: right;
+}
+.myForm .layui-form-item {
+    position: relative;
+}
+.myForm .layui-icon {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+.myForm .layui-input {
+    padding-left: 25px;
+}
+
+.hidden {
+    display: none;
 }
