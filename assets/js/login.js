@@ -71,6 +71,7 @@ $(function () {
             success: function (info) {
                 if(info.status == 0) {
                     location.href = './index.html';
+                    // console.log(info);
                 } else if(info.status == 1) {
                     var layer = layui.layer;
                     layer.msg(info.message);
