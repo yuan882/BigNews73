@@ -3,7 +3,8 @@
 }
 
 /* 设置nav中头像样式 */
-.layui-nav .nav-avatar {
+.layui-nav .nav-avatar,
+.layui-side .side-avatar {
     display: inline-block;
     width: 36px;
     height: 36px;
@@ -14,7 +15,19 @@
     font-size: 25px;
     color: #fff;
     vertical-align: middle;
+    margin-right: 5px;
 
+}
+
+/* 欢迎语 */
+.layui-side .userInfo {
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.layui-side .userInfo a {
+    color: #fff;
 }
 
 /* 隐藏类 */
