@@ -70,6 +70,7 @@ $(function () {
             data: $(this).serialize(),
             success: function (info) {
                 if(info.status == 0) {
+                    window.localStorage.setItem('token',info.token);
                     location.href = './index.html';
                     // console.log(info);
                 } else if(info.status == 1) {
