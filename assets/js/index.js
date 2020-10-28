@@ -4,9 +4,7 @@ $(function () {
     $.ajax({
         type: 'get',
         url: '/my/userinfo',
-        headers: {
-            'Authorization':"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTg5MTIsInVzZXJuYW1lIjoieXVhbjEyMyIsInBhc3N3b3JkIjoiIiwibmlja25hbWUiOiIiLCJlbWFpbCI6IiIsInVzZXJfcGljIjoiIiwiaWF0IjoxNjAzNzg5MDI0LCJleHAiOjE2MDM4MjUwMjR9.USN2Tu_zmDMyBGYXY1Ry0wKVTx8bPGGeYP7Yo07FlvY"
-        },
+        // token在utils.js中统一设置
         success:function(res){
             console.log(res);
             if(res.status === 0) {
