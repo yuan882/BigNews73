@@ -3,21 +3,45 @@
 }
 
 /* 设置nav中头像样式 */
-.layui-nav .nav-avatar {
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: rgb(0, 150, 136);
-    text-align: center;
-    line-height: 36px;
-    font-size: 25px;
-    color: #fff;
-    vertical-align: middle;
+.layui-nav .text-avatar,
+.userInfo .text-avatar {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  line-height: 34px;
+  text-align: center;
+  background-color: rgb(0, 150, 136);
+  font-size: 24px;
+  border-radius: 50%;
+  margin-right: 6px;
+  color: #fff;
+  vertical-align: middle;
+}
 
+/* 欢迎语 */
+.layui-side .userInfo {
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.layui-side .userInfo a {
+    color: #fff;
 }
 
 /* 隐藏类 */
 .hidden {
     display: none;
+}
+
+.layui-nav-img {
+    display: none;
+  }
+
+/* .layui-body {
+    background-color: #eee;
+} */
+
+iframe {
+    background-color: #eee;
 }
