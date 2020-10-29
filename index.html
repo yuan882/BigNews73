@@ -17,8 +17,8 @@
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
         <a href="javascript:;">
-            <span class="nav-avatar">A</span>
-            <img src="http://t.cn/RCzsdCq" class="layui-nav-img hidden">
+            <span class="text-avatar">A</span>
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
             个人中心
         </a>
         <dl class="layui-nav-child">
@@ -27,15 +27,17 @@
           <dd><a href="">重置密码</a></dd>
         </dl>
       </li>
-      <li class="layui-nav-item"><a href="">退出</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;" class="logout"><i class="layui-icon layui-icon-logout"></i>退出</a>
+      </li>
     </ul>
   </div>
   
   <div class="layui-side layui-bg-black">
     <div class="userInfo">
         <a href="javascript:;">
-            <span class="side-avatar">A</span>
-            <img src="http://t.cn/RCzsdCq" class="layui-nav-img hidden">
+            <span class="text-avatar">A</span>
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
             <span class="welcome">欢迎&nbsp;&nbsp;AAA</span>
         </a>
     </div>
@@ -56,9 +58,9 @@
         <li class="layui-nav-item">
           <a href="javascript:;">个人中心</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">基本资料</a></dd>
-            <dd><a href="javascript:;">更换头像</a></dd>
-            <dd><a href="javascript:;">重置密码</a></dd>
+            <dd><a href="./user/user_info.html" target="main-iframe">基本资料</a></dd>
+            <dd><a href="./user/user_avatar.html" target="main-iframe">更换头像</a></dd>
+            <dd><a href="./user/user_pass.html" target="main-iframe">重置密码</a></dd>
           </dl>
         </li>
       </ul>

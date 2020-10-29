@@ -1,26 +1,46 @@
 $(function () {
     // 获取登录名等用户信息
     // 使用ajax, 需要包含token在内
-    $.ajax({
-        type: 'get',
-        url: '/my/userinfo',
-        // token在utils.js中统一设置
-        success:function(res){
-            console.log(res);
-            if(res.status === 0) {
-                // 替换欢迎语
-                $('.userInfo .welcome').html(`欢迎&nbsp;&nbsp;${res.data.username}`);
-                // 如果用户上传了头像，则显示头像
-                if(!res.data.user_pic){
-                    $('.layui-side .side-avatar').text(res.data.username.slice(0,1).toUpperCase());
-                    $('.layui-nav .nav-avatar').text(res.data.username.slice(0,1).toUpperCase());
+    getUserInfo();
+    function getUserInfo() {
+        $.ajax({
+            type: 'get',
+            url: '/my/userinfo',
+            success: function (res) {
+              console.log('success中的输出',res)
+              if (res.status == 0) {
+                // 1.2 将昵称或用户名与头像渲染到对应位置
+                // 左侧欢迎语
+                $('.userInfo .welcome').html(`欢迎&nbsp;&nbsp;${res.data.nickname ? res.data.nickname : res.data.username}`)
+                // 左侧欢迎语的头像位置
+                // !res.data.user_pic
+                if (true) {
+                  // 没有头像 
+                  if (!res.data.nickname) {
+                    $('.userInfo .text-avatar,.layui-header .text-avatar').text(res.data.username.slice(0, 1).toUpperCase())
+                  } else {
+                    $('.userInfo .text-avatar,.layui-header .text-avatar').text(res.data.nickname.slice(0, 1).toUpperCase())
+                  }
+                } else {
+                  // 显示对应的头像
+                  $('.userInfo .text-avatar,.layui-header .text-avatar').hide().next().show().attr('src', res.data.user_pic)
                 }
-                else {
-                    $('.layui-side .side-avatar').addClass('hidden');
-                    $('.layui-nav .nav-avatar').addClass('hidden');
-                    $('.layui-nav-img').removeClass('hidden');
-                }
-            }
-        }
+              }
+            },
+        })
+    }
+
+    window.getUserInfo = getUserInfo;
+
+    $('.logout').on('click', function () {
+        // 确认框
+        layer.confirm('确定要退出吗', {icon: 3, title:'提示'}, function(index){
+            layer.close(index);
+            // 删除token
+            window.localStorage.removeItem('token');
+            // 跳回login界面
+            location.href = './login.html';
+            // layer.close(index);
+          });
     })
 })
