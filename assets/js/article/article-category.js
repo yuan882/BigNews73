@@ -13,4 +13,14 @@ $(function() {
             }
         }
     })
+
+    // 给添加按钮注册事件
+    $('.btn-add-cat').on('click', function () {
+        layer.open({
+            type: 1,
+            title: '添加文章分类',
+            content: $('#add-cat-temp').html(),
+            area: '520px'
+        })
+    })
 })
