@@ -1,0 +1,61 @@
+<!-- yuan -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章类别页面</title>
+    <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../assets/css/article/article-category.css">
+</head>
+<body>
+
+    <div class="layui-card">
+        <div class="layui-card-header">
+          <span>文章类别管理</span>
+          <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">增加分类</button>
+        </div>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col width="200">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>分类名称</th>
+                        <th>分类别名</th>
+                        <th>操作</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    <!-- template模板填充 -->
+                </tbody>
+         </table>
+        </div>
+    </div>
+
+    <!-- 分类列表模板 -->
+    <script type="text/template" id="categoryList">
+        {{each data val idx}}
+            <tr>
+                <td>{{val.name}}</td>
+                <td>{{val.alias}}</td>
+                <td>
+                    <button type="button" data-id="{{val.id}}" class="layui-btn  layui-btn-xs">编辑</button>
+                    <button type="button" data-id="{{val.id}}" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+                </td>
+            </tr>
+        {{/each}}
+
+    </script>
+
+    <script src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/lib/jquery.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/article/article-category.js"></script>
+
+</body>
+</html>
