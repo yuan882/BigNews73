@@ -13,6 +13,7 @@ $(function () {
 
     // 弹出选择文件的窗口
     $('.btn-upload').on('click', function () {
+        console.log('test')
         $('#avatar').click()
     })
 
@@ -28,5 +29,34 @@ $(function () {
             .cropper('destroy')
             .attr('src', imgUrl)
             .cropper(options)
+    })
+
+    // 上传头像
+    $('.row2 .btn-sure').on('click', function (e) {
+        console.log('test')
+        e.preventDefault()
+        // 生成base64格式的图片链接
+        var dataURL = $image
+            .cropper('getCroppedCanvas', {
+                width: 100,
+                height: 100
+            })
+            .toDataURL('image/png');
+        
+        // 发送AJAX请求
+        $.ajax({
+            type: 'post',
+            url: '/my/update/avatar',
+            data: {
+                avatar: dataURL
+            },
+            success: function (res) {
+                if(res.status == 0) {
+                    layer.msg('更新头像成功');
+                    window.parent.getUserInfo();
+                }
+            }
+        })
+
     })
 })
