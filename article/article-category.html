@@ -1,0 +1,112 @@
+<!-- yuan -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章类别页面</title>
+    <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../assets/css/article/article-category.css">
+</head>
+<body>
+
+    <div class="layui-card">
+        <div class="layui-card-header">
+          <span>文章类别管理</span>
+          <button type="button" class="layui-btn layui-btn-normal layui-btn-sm btn-add-cat">增加分类</button>
+        </div>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col width="200">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>分类名称</th>
+                        <th>分类别名</th>
+                        <th>操作</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    <!-- template模板填充 -->
+                </tbody>
+         </table>
+        </div>
+    </div>
+
+    <script type="text/template" id="add-cat-temp">
+        <form class="layui-form  addForm">
+            <!-- <input type="hidden" name="Id"> -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">分类名称:</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" required lay-verify="required|username" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">分类别名:</label>
+                <div class="layui-input-block">
+                    <input type="text" name="alias" required lay-verify="required|username" placeholder="请输入分类别名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </script>
+
+    <!-- 编辑分类的弹出层表单布局 -->
+   <script type="text/html" id="editCteTmp">
+    <form class="layui-form  myForm editForm" lay-filter = "myForm">
+      <input type="hidden" name="Id">
+      <div class="layui-form-item">
+        <label class="layui-form-label">分类名称:</label>
+        <div class="layui-input-block">
+          <input type="text" name="name" required lay-verify="required|username" placeholder="请输入分类名称" autocomplete="off"
+            class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">分类别名:</label>
+        <div class="layui-input-block">
+          <input type="text" name="alias" required lay-verify="required|username" placeholder="请输入分类别名" autocomplete="off"
+            class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button class="layui-btn" lay-submit lay-filter="formDemo">确认更新</button>
+          <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+      </div>
+    </form>
+  </script>
+
+    <!-- 分类列表模板 -->
+    <script type="text/template" id="categoryList">
+        {{each data val idx}}
+            <tr>
+                <td>{{val.name}}</td>
+                <td>{{val.alias}}</td>
+                <td>
+                    <button type="button" data-id="{{val.Id}}" class="layui-btn  layui-btn-xs btn-edit">编辑</button>
+                    <button type="button" data-id="{{val.Id}}" class="layui-btn layui-btn-danger layui-btn-xs btn-del">删除</button>
+                </td>
+            </tr>
+        {{/each}}
+
+    </script>
+
+    <script src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/lib/jquery.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/article/article-category.js"></script>
+
+</body>
+</html>

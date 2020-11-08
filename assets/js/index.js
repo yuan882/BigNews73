@@ -14,7 +14,7 @@ $(function () {
                 $('.userInfo .welcome').html(`欢迎&nbsp;&nbsp;${res.data.nickname ? res.data.nickname : res.data.username}`)
                 // 左侧欢迎语的头像位置
                 // !res.data.user_pic
-                if (true) {
+                if (!res.data.user_pic) {
                   // 没有头像 
                   if (!res.data.nickname) {
                     $('.userInfo .text-avatar,.layui-header .text-avatar').text(res.data.username.slice(0, 1).toUpperCase())
